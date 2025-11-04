@@ -3,7 +3,7 @@ class_name Melee_dude
 
 @onready var player = get_node("../Player") # relative path works too
 @onready var sprite: Sprite2D = $Sprite2D
-var health: int = 10;
+var enemy_health: int = 10;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +21,6 @@ func die():
 	queue_free()
 
 func on_hit(damage: int):
-	health -= damage
-	if (health <= 0):
+	enemy_health -= damage
+	if (enemy_health <= 0):
 		die()
