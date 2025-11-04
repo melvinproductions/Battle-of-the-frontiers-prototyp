@@ -35,4 +35,3 @@ position = Vector2(1, 183)
 
 [node name="door" parent="." instance=ExtResource("3_s0xni")]
 position = Vector2(962, -279)
-destionation_scene_tag = "room1"
