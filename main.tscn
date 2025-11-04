@@ -38,7 +38,6 @@ position = Vector2(0, -316)
 
 [node name="door1" parent="doors" instance=ExtResource("3_h2yge")]
 position = Vector2(576, 68)
-destionation_scene_tag = "room2"
 
 [node name="CollisionShape2D" parent="doors/door1" index="0"]
 position = Vector2(2, -42)
