@@ -1,10 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
-var health : int
+var health : int = 10
 var max_health : int = 100
 var speed = 600
-var health = 10
 
 @onready var health_bar: ProgressBar = $health_bar
 
@@ -18,18 +17,15 @@ func get_input():
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	velocity = input_dir * speed
 
-func get_hit(damage):
-	print("ouch")
-	
-
 func _physics_process(delta: float) -> void:
-	
-	if Input.is_action_just_pressed("fire"):
-		take_damage()
-	
 	get_input()
 	move_and_slide()
-	
-func take_damage():
-	health -= 10
+
+func die():
+	pass
+
+func get_hit(damage: int):
+	health -= damage
 	health_bar.health = health
+	if health <= 0:
+		die()

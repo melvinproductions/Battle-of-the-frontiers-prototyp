@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 func die():
 	queue_free()
 
-func on_hit(damage: int):
+func get_hit(damage: int):
 	enemy_health -= damage
 	if (enemy_health <= 0):
 		die()
