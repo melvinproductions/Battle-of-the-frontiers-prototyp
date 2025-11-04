@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsgbxlgbmurpy"]
+[gd_scene load_steps=6 format=3 uid="uid://dsgbxlgbmurpy"]
 
 [ext_resource type="Script" uid="uid://ccivdtog186g1" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://djnj8l8v8o3l5" path="res://sprites/Square-white.svg.png" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://jypelxj7pws" path="res://guns/pistol/pistol.tscn" id="3_g1dw6"]
 
 [sub_resource type="Environment" id="Environment_rkbax"]
 background_mode = 3
@@ -20,16 +21,15 @@ script = ExtResource("1_rkbax")
 environment = SubResource("Environment_rkbax")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(577.00006, 326.00003)
 scale = Vector2(0.03, 0.05)
 texture = ExtResource("2_rkbax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(577, 326)
 shape = SubResource("RectangleShape2D_rkbax")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
 scale = Vector2(0.545, 0.545)
 zoom = Vector2(0.75, 0.75)
 position_smoothing_speed = 10.0
+
+[node name="Gun" parent="." instance=ExtResource("3_g1dw6")]
