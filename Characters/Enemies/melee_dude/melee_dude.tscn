@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqos3se54s3vb"]
+
+[ext_resource type="Script" uid="uid://dwkuuayplgia8" path="res://melee_dude.gd" id="1_0atwb"]
+[ext_resource type="Texture2D" uid="uid://yehot0ysngyt" path="res://Characters/Enemies/melee_dude/pixel-art-fighter-with-energy-blast-wftnxu6mt70596j1.png" id="2_fycf3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0atwb"]
+size = Vector2(965, 203.38254)
+
+[node name="MeleeDude" type="CharacterBody2D"]
+script = ExtResource("1_0atwb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fycf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-18.00003, 59.999985)
+rotation = -3.1415925
+scale = Vector2(0.5992893, 3.537179)
+shape = SubResource("RectangleShape2D_0atwb")

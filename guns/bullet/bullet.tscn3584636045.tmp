@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vul8"]
 size = Vector2(1149.9954, 649.9974)
 
-[node name="bullet" type="Area2D"]
+[node name="bullet" type="CharacterBody2D"]
 scale = Vector2(0.040000156, 0.040000156)
 script = ExtResource("1_1vul8")
 
@@ -22,5 +22,4 @@ position = Vector2(549.99817, 24.999928)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_1vul8")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -44,11 +44,7 @@ position = Vector2(576, 68)
 position = Vector2(2, -42)
 
 [node name="MeleeDude" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(-343, 150.99998)
-scale = Vector2(0.12023016, 0.12023016)
-
-[node name="MeleeDude2" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(1238, 31)
-scale = Vector2(0.16000003, 0.16000003)
+position = Vector2(-157, 91)
+scale = Vector2(0.39582375, 0.39582375)
 
 [editable path="doors/door1"]
