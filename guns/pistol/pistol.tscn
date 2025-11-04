@@ -7,10 +7,14 @@
 script = ExtResource("1_dusqw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(66, -27)
+position = Vector2(19.454071, 7.6293945e-05)
 scale = Vector2(0.3600006, 0.3600006)
 texture = ExtResource("1_lmfgc")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(107, -29)
+position = Vector2(61.45408, -3.9999237)
 scale = Vector2(-50.745407, 1.5047448)
+
+[node name="Fire_rate_timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

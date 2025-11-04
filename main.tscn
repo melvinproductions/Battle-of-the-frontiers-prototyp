@@ -26,9 +26,6 @@ sources/4 = SubResource("TileSetAtlasSource_0xm2m")
 
 [node name="Main" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(577, 480)
-
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(8, -8)
 tile_set = SubResource("TileSet_1bvp3")
@@ -44,12 +41,19 @@ position = Vector2(576, 68)
 [node name="CollisionShape2D" parent="doors/door1" index="0"]
 position = Vector2(2, -42)
 
-[node name="MeleeDude" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(-343, 150.99998)
-scale = Vector2(0.12023016, 0.12023016)
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(582, 483)
+
+[node name="MeleeDude3" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(1423, 577)
+
+[node name="MeleeDude" parent="MeleeDude3" instance=ExtResource("4_1bvp3")]
+position = Vector2(276, -958)
 
 [node name="MeleeDude2" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(1238, 31)
-scale = Vector2(0.16000003, 0.16000003)
+position = Vector2(-246, 279)
+
+[node name="MeleeDude" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(997, -16)
 
 [editable path="doors/door1"]

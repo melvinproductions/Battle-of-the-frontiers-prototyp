@@ -12,6 +12,9 @@ func _ready():
 	health = max_health
 	health_bar.value = health
 	health_bar.init_health(health)
+	
+	#sätter player i en egen grupp, lättare att hitta i andra klasser
+	add_to_group("player")
 
 func get_input():
 	var input_dir = Input.get_vector("left", "right", "up", "down")

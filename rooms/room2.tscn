@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddbwg5k285s82"]
+[gd_scene load_steps=7 format=3 uid="uid://ddbwg5k285s82"]
 
 [ext_resource type="Texture2D" uid="uid://djnj8l8v8o3l5" path="res://sprites/Square-white.svg.png" id="1_illd5"]
 [ext_resource type="PackedScene" uid="uid://dsgbxlgbmurpy" path="res://Characters/player/player.tscn" id="3_8btvk"]
 [ext_resource type="PackedScene" uid="uid://g6e6l4epe58l" path="res://door/door.tscn" id="3_s0xni"]
+[ext_resource type="PackedScene" uid="uid://bqos3se54s3vb" path="res://Characters/Enemies/melee_dude/melee_dude.tscn" id="4_s0xni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8btvk"]
 texture = ExtResource("1_illd5")
@@ -35,3 +36,12 @@ position = Vector2(572, 483)
 
 [node name="door" parent="." instance=ExtResource("3_s0xni")]
 position = Vector2(962, -279)
+
+[node name="MeleeDude" parent="." instance=ExtResource("4_s0xni")]
+position = Vector2(16, 267)
+
+[node name="MeleeDude" parent="MeleeDude" instance=ExtResource("4_s0xni")]
+position = Vector2(1443, -283)
+
+[node name="MeleeDude" parent="MeleeDude/MeleeDude" instance=ExtResource("4_s0xni")]
+position = Vector2(-938, -449)

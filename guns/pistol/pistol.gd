@@ -3,6 +3,8 @@ extends Node2D
 @onready var marker_2d: Marker2D = $Marker2D
 const BULLET = preload("uid://c4k4fboi6i6bl")
 
+@onready var fire_rate_timer: Timer = $Fire_rate_timer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,7 +22,9 @@ func _process(delta: float) -> void:
 	else:
 		scale.y = 1
 	
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire") and fire_rate_timer.time_left <= 0:
+		fire_rate_timer.start()
+		
 		var bullet_instance = BULLET.instantiate()
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.global_position = marker_2d.global_position
