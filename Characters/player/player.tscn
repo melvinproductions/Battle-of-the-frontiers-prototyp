@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsgbxlgbmurpy"]
 
-[ext_resource type="Script" uid="uid://ccivdtog186g1" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://ccivdtog186g1" path="res://Characters/player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://djnj8l8v8o3l5" path="res://sprites/Square-white.svg.png" id="2_rkbax"]
 [ext_resource type="PackedScene" uid="uid://jypelxj7pws" path="res://guns/pistol/pistol.tscn" id="3_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://bgv1dpkdk873f" path="res://UI/healthbar.tscn" id="4_yw30f"]

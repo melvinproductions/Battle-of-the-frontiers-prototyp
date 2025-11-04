@@ -1,6 +1,7 @@
-extends Node2D
+extends Area2D
 
 const SPEED: int = 75000
+const DAMAGE = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,3 +15,10 @@ func _process(delta: float) -> void:
 # Remove bullet when not on screen
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free() 
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.has_method("on_hit"):
+		queue_free()
+		body.on_hit(DAMAGE)
+	else:
+		queue_free()
