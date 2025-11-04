@@ -7,7 +7,7 @@ class_name roll_animation_scene
 @export var destionation_scene_tag : String #väljer vilken scene det ska vara
 	
 func _physics_process(delta):
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("fire"):
 		animation.play("roll")
 
 
