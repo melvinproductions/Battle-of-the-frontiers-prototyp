@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsgbxlgbmurpy"]
+[gd_scene load_steps=7 format=3 uid="uid://dsgbxlgbmurpy"]
 
 [ext_resource type="Script" uid="uid://ccivdtog186g1" path="res://Characters/player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://djnj8l8v8o3l5" path="res://sprites/Square-white.svg.png" id="2_rkbax"]
 [ext_resource type="PackedScene" uid="uid://jypelxj7pws" path="res://guns/pistol/pistol.tscn" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://bgv1dpkdk873f" path="res://UI/healthbar.tscn" id="4_yw30f"]
 
 [sub_resource type="Environment" id="Environment_rkbax"]
 background_mode = 3
@@ -33,3 +34,9 @@ zoom = Vector2(0.75, 0.75)
 position_smoothing_speed = 10.0
 
 [node name="Gun" parent="." instance=ExtResource("3_g1dw6")]
+
+[node name="health_bar" parent="." instance=ExtResource("4_yw30f")]
+offset_left = -720.0
+offset_top = -389.0
+offset_right = -305.0
+offset_bottom = -360.0
