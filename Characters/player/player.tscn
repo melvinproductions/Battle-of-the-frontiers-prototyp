@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsgbxlgbmurpy"]
+[gd_scene load_steps=9 format=3 uid="uid://dsgbxlgbmurpy"]
 
 [ext_resource type="Script" uid="uid://ccivdtog186g1" path="res://Characters/player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://00bcv8fnrgd1" path="res://sprites/Monkey-D-Luffy-PNG-Transparent-Image.png" id="2_763xw"]
 [ext_resource type="PackedScene" uid="uid://jypelxj7pws" path="res://guns/pistol/pistol.tscn" id="3_g1dw6"]
-[ext_resource type="PackedScene" uid="uid://bi4bsfjdw6rvp" path="res://scenes/melee.tscn" id="4_6wacn"]
 [ext_resource type="PackedScene" uid="uid://bgv1dpkdk873f" path="res://UI/healthbar.tscn" id="4_yw30f"]
 
 [sub_resource type="Environment" id="Environment_rkbax"]
@@ -56,9 +55,6 @@ one_shot = true
 
 [node name="Invincibility_timer" type="Timer" parent="timers"]
 one_shot = true
-
-[node name="melee" parent="timers" instance=ExtResource("4_6wacn")]
-position = Vector2(2, -8)
 
 [node name="bars" type="Node2D" parent="."]
 

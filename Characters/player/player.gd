@@ -18,6 +18,10 @@ var is_dashing : bool = false
 var dash_speed : int = 1100
 var can_dash : bool = true
 
+#melee saker
+@onready var melee_marker: Marker2D = $melee/melee_marker
+
+
 func _ready():
 	health = max_health
 	
@@ -62,9 +66,13 @@ func dash(input_dir):
 	dash_duration_timer.start()
 	var dash_dir = input_dir
 	velocity = dash_dir * dash_speed
+	
+	#melee
+	melee_marker.look_at(get_global_mouse_position())
+
 
 func melee_attack():
-	print("melee attack!")
+	print("melee attack")
 
 func die():
 	pass
