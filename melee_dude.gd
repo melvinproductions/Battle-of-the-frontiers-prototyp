@@ -7,6 +7,7 @@ class_name Melee_dude
 @onready var player = get_tree().get_first_node_in_group("player")
 
 var health : int
+const ENEMY_DAMAGE: int = 1
 const ENEMY_SPEED: int = 200;
 const ENEMY_MAX_HEALTH : int = 10
 
@@ -42,4 +43,4 @@ func get_hit(damage: int):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player: 
-		body.get_hit()
+		body.get_hit(ENEMY_DAMAGE)
