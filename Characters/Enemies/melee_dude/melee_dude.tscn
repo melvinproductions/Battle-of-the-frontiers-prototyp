@@ -37,4 +37,13 @@ rotation = -3.1415925
 scale = Vector2(0.5992893, 3.537179)
 shape = SubResource("RectangleShape2D_0atwb")
 
+[node name="AI" type="Node2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="AI"]
+debug_enabled = true
+
+[node name="time_until_make_new_path" type="Timer" parent="AI"]
+wait_time = 0.3
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="AI/time_until_make_new_path" to="." method="_on_time_until_make_new_path_timeout"]

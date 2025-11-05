@@ -5,7 +5,8 @@ class_name Melee_dude
 @onready var enemy_healthbar: ProgressBar = $enemy_healthbar
 
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var nav_agent: NavigationAgent2D = $"AI handler/NavigationAgent2D"
+@onready var nav_agent: NavigationAgent2D = $AI/NavigationAgent2D
+
 
 var speed : int = 325
 var health : int
@@ -51,5 +52,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func make_path():
 	nav_agent.target_position = player.global_position
 
-func _on_timer_timeout() -> void:
+
+func _on_time_until_make_new_path_timeout() -> void:
 	make_path()
