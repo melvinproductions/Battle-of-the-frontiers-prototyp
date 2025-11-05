@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi4bsfjdw6rvp"]
+
+[ext_resource type="Texture2D" uid="uid://urmo46qikm7a" path="res://sprites/melee.png" id="1_v46oj"]
+
+[node name="melee" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-30.999998, 24.999998)
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("1_v46oj")

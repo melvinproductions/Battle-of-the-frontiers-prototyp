@@ -17,11 +17,6 @@ collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_0atwb")
-MAX_HEALTH = null
-ENEMY_DAMAGE = null
-BASE_GOLD_WORTH = null
-ENEMY_SPEED = null
-ENEMY_MAX_HEALTH = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.175, 0.175)

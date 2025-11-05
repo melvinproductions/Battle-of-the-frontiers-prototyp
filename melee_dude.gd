@@ -7,7 +7,6 @@ class_name Melee_dude
 @onready var nav_agent: NavigationAgent2D = $AI/NavigationAgent2D
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	enemy_healthbar = $enemy_healthbar
