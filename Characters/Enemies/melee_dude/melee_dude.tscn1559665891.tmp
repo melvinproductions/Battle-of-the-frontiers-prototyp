@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqos3se54s3vb"]
+
+[ext_resource type="Script" uid="uid://dwkuuayplgia8" path="res://melee_dude.gd" id="1_0atwb"]
+[ext_resource type="Texture2D" uid="uid://yehot0ysngyt" path="res://Characters/Enemies/melee_dude/pixel-art-fighter-with-energy-blast-wftnxu6mt70596j1.png" id="2_fycf3"]
+[ext_resource type="PackedScene" uid="uid://t7jr01ydfhjn" path="res://UI/enemy_healthbar.tscn" id="3_fycf3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fycf3"]
+size = Vector2(116, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0atwb"]
+size = Vector2(96.78134, 24.878582)
+
+[node name="MeleeDude" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_0atwb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("2_fycf3")
+
+[node name="enemy_healthbar" parent="." instance=ExtResource("3_fycf3")]
+offset_left = -51.0
+offset_top = -86.0
+offset_right = 41.0
+offset_bottom = -72.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6, 0.5)
+shape = SubResource("RectangleShape2D_fycf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 10)
+rotation = -3.1415925
+scale = Vector2(0.5992893, 3.537179)
+shape = SubResource("RectangleShape2D_0atwb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

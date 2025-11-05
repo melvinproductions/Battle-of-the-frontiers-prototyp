@@ -1,9 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://5ghi4th8ysih"]
+[gd_scene load_steps=9 format=3 uid="uid://5ghi4th8ysih"]
 
 [ext_resource type="Texture2D" uid="uid://djnj8l8v8o3l5" path="res://sprites/Square-white.svg.png" id="1_lwhkg"]
 [ext_resource type="PackedScene" uid="uid://dsgbxlgbmurpy" path="res://Characters/player/player.tscn" id="2_n2rm1"]
 [ext_resource type="PackedScene" uid="uid://g6e6l4epe58l" path="res://door/door.tscn" id="3_yv82f"]
 [ext_resource type="PackedScene" uid="uid://bqos3se54s3vb" path="res://Characters/Enemies/melee_dude/melee_dude.tscn" id="4_w4cg4"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_w4cg4"]
+vertices = PackedVector2Array(27.5, 27.5, -27.5, 27.5, -27.5, -27.5, 27.5, -27.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-27.5, -27.5, 27.5, -27.5, 27.5, 27.5, -27.5, 27.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ilnpg"]
+vertices = PackedVector2Array(27.5, 27.5, -27.5, 27.5, -27.5, -27.5, 27.5, -27.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-27.5, -27.5, 27.5, -27.5, 27.5, 27.5, -27.5, 27.5)])
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yv82f"]
 texture = ExtResource("1_lwhkg")
@@ -12,17 +24,22 @@ texture_region_size = Vector2i(55, 55)
 8:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-27.5, -27.5, 27.5, -27.5, 27.5, 27.5, -27.5, 27.5)
 2:8/0 = 0
 2:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-27.5, -27.5, 27.5, -27.5, 27.5, 27.5, -27.5, 27.5)
+2:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_w4cg4")
 4:8/0 = 0
 4:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-27.5, -27.5, 27.5, -27.5, 27.5, 27.5, -27.5, 27.5)
+4:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_w4cg4")
 5:8/0 = 0
 5:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-27.5, -27.5, 27.5, -27.5, 27.5, 27.5, -27.5, 27.5)
 3:8/0 = 0
 3:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-27.5, -27.5, 27.5, -27.5, 27.5, 27.5, -27.5, 27.5)
+3:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_w4cg4")
 6:4/0 = 0
+6:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ilnpg")
 
 [sub_resource type="TileSet" id="TileSet_w4cg4"]
 tile_size = Vector2i(55, 55)
 physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
 sources/4 = SubResource("TileSetAtlasSource_yv82f")
 
 [node name="room1" type="Node2D"]
@@ -38,14 +55,10 @@ position = Vector2(582, 479)
 [node name="door" parent="." instance=ExtResource("3_yv82f")]
 position = Vector2(-168, -306)
 
-[node name="MeleeDude3" parent="." instance=ExtResource("4_w4cg4")]
-position = Vector2(171, -984)
-
-[node name="MeleeDude4" parent="." instance=ExtResource("4_w4cg4")]
-position = Vector2(1210, 378)
-
 [node name="MeleeDude2" parent="." instance=ExtResource("4_w4cg4")]
-position = Vector2(1607, -269)
+position = Vector2(1503, -226)
 
 [node name="MeleeDude" parent="." instance=ExtResource("4_w4cg4")]
-position = Vector2(128, -416)
+position = Vector2(104, -479)
+
+[editable path="Player"]
