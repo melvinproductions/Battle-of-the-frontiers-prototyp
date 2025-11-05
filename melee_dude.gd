@@ -21,19 +21,14 @@ func _ready() -> void:
 	enemy_healthbar.init_health(health)
 
 func _physics_process(delta: float) -> void:
-	if nav_agent.is_navigation_finished():
-		velocity = Vector2.ZERO
-		move_and_slide()
-		return
-
-	var target_global = nav_agent.get_next_path_position()
-	var dir = (target_global - global_position)  # use global positions
-	if dir.length() > 0.001:
-		velocity = dir.normalized() * speed
-	else:
-		velocity = Vector2.ZERO
-
+	nav_agent.target_position = player.global_position
+		
+	var next_path_position = nav_agent.get_next_path_position()
+		
+	var direction = global_position.direction_to(next_path_position)
+	velocity = direction * speed
 	move_and_slide()
+
 
 func die():
 	queue_free()
