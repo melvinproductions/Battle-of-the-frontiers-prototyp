@@ -7,6 +7,7 @@ class_name Melee_dude
 @onready var player = get_tree().get_first_node_in_group("player")
 
 var health : int
+const ENEMY_SPEED: int = 200;
 const ENEMY_MAX_HEALTH : int = 10
 
 # Called when the node enters the scene tree for the first time.
@@ -15,9 +16,14 @@ func _ready() -> void:
 	enemy_healthbar.init_health(health)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if player == null:
 		return
+	
+	# Skapar en normaliserad vektor som pekar mot spelaren
+	var direction = (player.position - position).normalized()
+	velocity = ENEMY_SPEED*direction
+	move_and_slide()
 	
 	if global_position.x < player.global_position.x:
 		sprite.flip_h = false
@@ -32,3 +38,8 @@ func get_hit(damage: int):
 	enemy_healthbar.health = health
 	if (health <= 0):
 		die()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player: 
+		body.get_hit()
