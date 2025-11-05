@@ -90,11 +90,14 @@ position = Vector2(579, 456)
 
 [node name="MeleeDude" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(869, 100)
+ENEMY_DAMAGE = 1
 
 [node name="MeleeDude2" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(-253, 207)
+ENEMY_DAMAGE = 1
 
 [node name="MeleeDude3" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(1639, 511)
+ENEMY_DAMAGE = 1
 
 [editable path="doors/door1"]
