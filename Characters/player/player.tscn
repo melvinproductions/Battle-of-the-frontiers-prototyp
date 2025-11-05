@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ccivdtog186g1" path="res://Characters/player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://00bcv8fnrgd1" path="res://sprites/Monkey-D-Luffy-PNG-Transparent-Image.png" id="2_763xw"]
 [ext_resource type="PackedScene" uid="uid://jypelxj7pws" path="res://guns/pistol/pistol.tscn" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://bi4bsfjdw6rvp" path="res://scenes/melee.tscn" id="4_6wacn"]
 [ext_resource type="PackedScene" uid="uid://bgv1dpkdk873f" path="res://UI/healthbar.tscn" id="4_yw30f"]
 
 [sub_resource type="Environment" id="Environment_rkbax"]
@@ -49,7 +50,7 @@ position_smoothing_speed = 10.0
 [node name="timers" type="Node" parent="."]
 
 [node name="Dash_duration_timer" type="Timer" parent="timers"]
-wait_time = 0.2
+wait_time = 0.35
 one_shot = true
 
 [node name="Dash_cooldown_timer" type="Timer" parent="timers"]
@@ -79,6 +80,7 @@ offset_top = -389.0
 offset_right = -305.0
 offset_bottom = -360.0
 
+<<<<<<< HEAD
 [node name="Pickup_detector" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 8
@@ -87,6 +89,10 @@ collision_mask = 8
 position = Vector2(-5, -9.5)
 shape = SubResource("CircleShape2D_763xw")
 debug_color = Color(0.63720506, 0.5240059, 0.11743613, 0.047058824)
+=======
+[node name="melee" parent="." instance=ExtResource("4_6wacn")]
+position = Vector2(-1, -1)
+>>>>>>> 9cc8ab4017338fdfdb567815e576b22f4cba7603
 
 [connection signal="timeout" from="timers/Dash_duration_timer" to="." method="_on_dash_duration_timer_timeout"]
 [connection signal="timeout" from="timers/Dash_cooldown_timer" to="." method="_on_dash_cooldown_timer_timeout"]

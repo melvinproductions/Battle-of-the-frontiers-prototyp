@@ -16,11 +16,14 @@ var speed = 600
 var is_invincible : bool = false
 
 var is_dashing : bool = false
-var dash_speed : int = 1100
+var dash_speed : int = 950
 var can_dash : bool = true
 
+@onready var sprite: Sprite2D = $Sprite2D
+
 #melee saker
-@onready var melee_marker: Marker2D = $melee/melee_marker
+@onready var melee_object: Node2D = $melee
+
 
 
 func _ready():
@@ -56,6 +59,8 @@ func _process(delta):
 		dash_progress_bar.visible = false
 	else:
 		dash_progress_bar.visible = true
+	
+	melee_object.look_at(get_global_mouse_position())
 
 func dash(input_dir):
 	is_dashing = true
@@ -67,6 +72,8 @@ func dash(input_dir):
 	dash_duration_timer.start()
 	var dash_dir = input_dir
 	velocity = dash_dir * dash_speed
+
+	sprite.flip_v = true
 
 
 func melee_attack():
@@ -89,6 +96,7 @@ func get_hit(damage: int):
 func _on_dash_duration_timer_timeout() -> void:
 	is_dashing = false
 	is_invincible = false
+	sprite.flip_v = false
 
 
 func _on_dash_cooldown_timer_timeout() -> void:

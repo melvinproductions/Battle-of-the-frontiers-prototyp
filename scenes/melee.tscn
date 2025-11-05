@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi4bsfjdw6rvp"]
+
+[ext_resource type="Texture2D" uid="uid://urmo46qikm7a" path="res://sprites/melee.png" id="1_v46oj"]
+
+[node name="melee" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.0051879883, 0.15924072)
+rotation = 3.9269907
+scale = Vector2(0.15, 0.25)
+skew = -0.3351032
+texture = ExtResource("1_v46oj")
+offset = Vector2(-539.70795, 255.03815)
