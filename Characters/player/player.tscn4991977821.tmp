@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsgbxlgbmurpy"]
+[gd_scene load_steps=7 format=3 uid="uid://dsgbxlgbmurpy"]
 
 [ext_resource type="Script" uid="uid://ccivdtog186g1" path="res://Characters/player/player.gd" id="1_rkbax"]
-[ext_resource type="Texture2D" uid="uid://00bcv8fnrgd1" path="res://sprites/Monkey-D-Luffy-PNG-Transparent-Image.png" id="2_763xw"]
+[ext_resource type="Texture2D" uid="uid://djnj8l8v8o3l5" path="res://sprites/Square-white.svg.png" id="2_rkbax"]
 [ext_resource type="PackedScene" uid="uid://jypelxj7pws" path="res://guns/pistol/pistol.tscn" id="3_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://bgv1dpkdk873f" path="res://UI/healthbar.tscn" id="4_yw30f"]
 
@@ -15,13 +15,6 @@ volumetric_fog_density = 0.171
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(58, 100)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_763xw"]
-bg_color = Color(1, 1, 1, 1)
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wacn"]
-bg_color = Color(0, 0, 0, 0.80784315)
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rkbax")
 
@@ -29,8 +22,8 @@ script = ExtResource("1_rkbax")
 environment = SubResource("Environment_rkbax")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.11, 0.11)
-texture = ExtResource("2_763xw")
+scale = Vector2(0.03, 0.05)
+texture = ExtResource("2_rkbax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rkbax")
@@ -42,34 +35,19 @@ position_smoothing_speed = 10.0
 
 [node name="Gun" parent="." instance=ExtResource("3_g1dw6")]
 
-[node name="timers" type="Node" parent="."]
-
-[node name="Dash_duration_timer" type="Timer" parent="timers"]
-wait_time = 0.2
-one_shot = true
-
-[node name="Dash_cooldown_timer" type="Timer" parent="timers"]
-wait_time = 2.0
-one_shot = true
-
-[node name="bars" type="Node2D" parent="."]
-
-[node name="health_bar" parent="bars" instance=ExtResource("4_yw30f")]
+[node name="health_bar" parent="." instance=ExtResource("4_yw30f")]
 offset_left = -720.0
 offset_top = -389.0
 offset_right = -305.0
 offset_bottom = -360.0
 
-[node name="dash_progress_bar" type="ProgressBar" parent="bars"]
-offset_left = 27.999998
-offset_top = -65.0
-offset_right = 32.00006
-offset_bottom = -38.0
-scale = Vector2(-14.480004, 0.24000031)
-theme_override_styles/background = SubResource("StyleBoxFlat_763xw")
-theme_override_styles/fill = SubResource("StyleBoxFlat_6wacn")
-value = 50.0
-show_percentage = false
+[node name="timers" type="Node" parent="."]
 
-[connection signal="timeout" from="timers/Dash_duration_timer" to="." method="_on_dash_duration_timer_timeout"]
+[node name="Dash_duration_timer" type="Timer" parent="timers"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Dash_cooldown_timer" type="Timer" parent="timers"]
+one_shot = true
+
 [connection signal="timeout" from="timers/Dash_cooldown_timer" to="." method="_on_dash_cooldown_timer_timeout"]
