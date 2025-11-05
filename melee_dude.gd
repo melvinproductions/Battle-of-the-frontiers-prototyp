@@ -7,7 +7,6 @@ class_name Melee_dude
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var nav_agent: NavigationAgent2D = $AI/NavigationAgent2D
 
-
 var speed : int = 325
 var health : int
 const ENEMY_DAMAGE: int = 1
