@@ -7,12 +7,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fycf3"]
 size = Vector2(116, 107)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0atwb"]
-size = Vector2(96.78134, 24.878582)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fycf3"]
+radius = 33.0
+height = 88.0
 
 [node name="MeleeDude" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_0atwb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -35,8 +38,7 @@ shape = SubResource("RectangleShape2D_fycf3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 10)
 rotation = -3.1415925
-scale = Vector2(0.5992893, 3.537179)
-shape = SubResource("RectangleShape2D_0atwb")
+shape = SubResource("CapsuleShape2D_fycf3")
 
 [node name="AI" type="Node2D" parent="."]
 
