@@ -17,6 +17,7 @@ var can_dash : bool = true
 
 func _ready():
 	health = max_health
+	
 	player_health_bar.value = health
 	player_health_bar.init_health(health)
 	dash_progress_bar.max_value = dash_cooldown_timer.wait_time
