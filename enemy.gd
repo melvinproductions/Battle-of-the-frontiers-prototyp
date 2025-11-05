@@ -17,9 +17,11 @@ var enemy_healthbar: ProgressBar = null  # placeholder
 signal died(enemy: Enemy)
 
 func drop_loot():
-	pass
+	pass	
 
 func die():
+	# Sends out signal that something died
+	emit_signal("died", self)
 	queue_free()
 
 func get_hit(damage: int):
