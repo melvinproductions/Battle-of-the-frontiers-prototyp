@@ -13,7 +13,7 @@ func _ready() -> void:
 	health = ENEMY_MAX_HEALTH
 	enemy_healthbar.init_health(health)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	nav_agent.target_position = player.global_position
 		
 	var next_path_position = nav_agent.get_next_path_position()

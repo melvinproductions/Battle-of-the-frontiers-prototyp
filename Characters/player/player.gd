@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+var coins: int = 0
 var health : int = 10
 var max_health : int = 100
 var speed = 600
@@ -66,9 +67,6 @@ func dash(input_dir):
 	dash_duration_timer.start()
 	var dash_dir = input_dir
 	velocity = dash_dir * dash_speed
-	
-	#melee
-	melee_marker.look_at(get_global_mouse_position())
 
 
 func melee_attack():
@@ -100,3 +98,14 @@ func _on_dash_cooldown_timer_timeout() -> void:
 func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
 	print("player CAN now take damage")
+
+func pick_up_coins(amount: int):
+	coins += amount
+	# Extra pickup animations/UI/whatever
+
+# Detects when player picks up coins
+func _on_pickup_detector_area_entered(area: Area2D) -> void:
+	print("hello")
+	if area.is_in_group("coins"):
+		call_deferred("pick_up_coins", area.amount)
+		area.call_deferred("picked_up")

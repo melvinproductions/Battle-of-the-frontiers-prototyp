@@ -18,10 +18,15 @@ signal died(enemy: Enemy)
 func drop_loot():
 	print("adding coin scene")
 	if COINS:
+		call_deferred("spawn_coin")
+
+
+func spawn_coin():
 		var coin = COINS.instantiate()
 		coin.amount = BASE_GOLD_WORTH
 		coin.global_position = global_position
 		get_parent().add_child(coin)
+	
 
 func die():
 	# Sends out signal that something died
