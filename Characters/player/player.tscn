@@ -23,6 +23,7 @@ border_color = Color(0, 0, 0, 1)
 bg_color = Color(0, 0, 0, 0.80784315)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_rkbax")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
