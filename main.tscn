@@ -90,14 +90,30 @@ position = Vector2(582, 483)
 
 [node name="MeleeDude4" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(1699, -381)
+collision_layer = 1
+collision_mask = 1
+motion_mode = 1
+wall_min_slide_angle = 0.0
 
 [node name="MeleeDude3" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(1423, 577)
+collision_layer = 1
+collision_mask = 1
+motion_mode = 1
+wall_min_slide_angle = 0.0
 
 [node name="MeleeDude2" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(-246, 279)
+collision_layer = 1
+collision_mask = 1
+motion_mode = 1
+wall_min_slide_angle = 0.0
 
 [node name="MeleeDude" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(997, -16)
+collision_layer = 1
+collision_mask = 1
+motion_mode = 1
+wall_min_slide_angle = 0.0
 
 [editable path="doors/door1"]
