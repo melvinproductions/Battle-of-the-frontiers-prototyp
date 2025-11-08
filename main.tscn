@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://wh7so3atoacq"]
+[gd_scene load_steps=10 format=3 uid="uid://wh7so3atoacq"]
 
 [ext_resource type="PackedScene" uid="uid://dsgbxlgbmurpy" path="res://Characters/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://djnj8l8v8o3l5" path="res://sprites/Square-white.svg.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://g6e6l4epe58l" path="res://door/door.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bqos3se54s3vb" path="res://Characters/Enemies/melee_dude/melee_dude.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://j4qfj5mhkl7g" path="res://Characters/Enemies/ranger_dude/ranger_dude.tscn" id="5_lquwl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1bvp3"]
 vertices = PackedVector2Array(27.5, 27.5, -27.5, 27.5, -27.5, -27.5, 27.5, -27.5)
@@ -89,12 +90,9 @@ position = Vector2(2, -42)
 position = Vector2(579, 456)
 
 [node name="MeleeDude" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(869, 100)
+position = Vector2(1724, 456)
 
-[node name="MeleeDude2" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(-253, 207)
-
-[node name="MeleeDude3" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(1639, 511)
+[node name="ArrowDude" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(601, 91)
 
 [editable path="doors/door1"]
