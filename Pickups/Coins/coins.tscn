@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3befyj2lgpcx"]
 
-[ext_resource type="Script" uid="uid://dt7ih22eaise1" path="res://Coins/coins.gd" id="1_lutay"]
-[ext_resource type="Texture2D" uid="uid://cv7fo7gbpfs0f" path="res://Coins/gev73.png" id="1_v3fye"]
+[ext_resource type="Script" uid="uid://dt7ih22eaise1" path="res://Pickups/Coins/coins.gd" id="1_lutay"]
+[ext_resource type="Texture2D" uid="uid://cv7fo7gbpfs0f" path="res://Pickups/Coins/gev73.png" id="1_v3fye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3fye"]
 radius = 430.46484
