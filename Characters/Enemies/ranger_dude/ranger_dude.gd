@@ -23,8 +23,8 @@ func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(next_path_position)
 	velocity = direction * ENEMY_SPEED
 	
-	#raycast saker
-	print(ray_cast_2d.is_colliding())
+	#raycast saker (JAG KOMMENTERADE BORT PGA FYLLD KONSOL //HAMPUS)
+	# print(ray_cast_2d.is_colliding())
 	
 	move_and_slide()
 
