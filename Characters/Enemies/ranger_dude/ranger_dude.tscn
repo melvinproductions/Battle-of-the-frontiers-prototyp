@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://j4qfj5mhkl7g"]
+
+[ext_resource type="Texture2D" uid="uid://c6qnljktnvd36" path="res://sprites/storm.png" id="1_cau4d"]
+[ext_resource type="Script" uid="uid://bf26c24r7shr0" path="res://Characters/Enemies/ranger_dude/ranger_dude.gd" id="1_sj16e"]
+[ext_resource type="PackedScene" uid="uid://t7jr01ydfhjn" path="res://UI/enemy_healthbar.tscn" id="3_t0es0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rdgk"]
+size = Vector2(116, 206.55737)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0es0"]
+radius = 79.245895
+height = 197.04918
+
+[node name="ArrowDude" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_sj16e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.305, 0.305)
+texture = ExtResource("1_cau4d")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(5, -1)
+scale = Vector2(0.305, 0.305)
+collision_mask = 4
+
+[node name="PlayerDetector" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6, -40.983612)
+shape = SubResource("RectangleShape2D_6rdgk")
+
+[node name="EnvirDetector" type="CollisionShape2D" parent="."]
+position = Vector2(4, -11)
+rotation = -3.1415925
+scale = Vector2(0.305, 0.305)
+shape = SubResource("CapsuleShape2D_t0es0")
+
+[node name="enemy_healthbar" parent="." instance=ExtResource("3_t0es0")]
+offset_left = -39.0
+offset_top = -90.0
+offset_right = 58.0
+offset_bottom = -80.0
+
+[node name="AI" type="Node2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="AI"]
+debug_enabled = true
+
+[node name="time_until_make_new_path" type="Timer" parent="AI"]
+wait_time = 0.3
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(223, 0)
+collision_mask = 4
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
