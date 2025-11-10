@@ -8,7 +8,6 @@ class_name Ranger_dude
 
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	enemy_healthbar = $enemy_healthbar
