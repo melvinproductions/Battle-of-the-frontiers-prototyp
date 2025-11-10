@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1lvr22n6g750"]
+
+[ext_resource type="Texture2D" uid="uid://bcd1d6lcucqhu" path="res://Pickups/XpPickup/Experience_Orb_Value_17-36.png" id="1_6jxn0"]
+[ext_resource type="Script" uid="uid://eacfrsuc6vpm" path="res://Pickups/XpPickup/xp_pickup.gd" id="1_46613"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_46613"]
+radius = 26.019224
+
+[node name="XpPickup" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_46613")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.7683716e-07, 1.1920929e-07)
+scale = Vector2(0.16388892, 0.16388892)
+texture = ExtResource("1_6jxn0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_46613")

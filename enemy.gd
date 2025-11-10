@@ -3,35 +3,45 @@ extends CharacterBody2D
 # It defines standard behaviour all enemies, which they are free to overwrite
 class_name Enemy
 
+var modifier_placeholder: float = 1.5
 @export var MAX_HEALTH: int = 10
 @export var ENEMY_DAMAGE: int = 10
-@export var BASE_GOLD_WORTH: int = 10 
 @export var ENEMY_SPEED: int = 200;
 @export var ENEMY_MAX_HEALTH : int = 10
+@export var BASE_GOLD_WORTH: int = 10 
+@export var BASE_XP_WORTH: int = 10
 const COINS = preload("uid://c3befyj2lgpcx")
+const XP_PICKUP = preload("uid://d1lvr22n6g750")
 
 var health: int = 0 # placeholder
 var enemy_healthbar: ProgressBar = null  # placeholder
 
-signal died(enemy: Enemy)
+signal enemy_died(enemy: Enemy)
 
 func drop_loot():
-	print("adding coin scene")
+	if XP_PICKUP:
+		call_deferred("spawn_xp")
 	if COINS:
 		call_deferred("spawn_coin")
 
+func spawn_xp():
+	var xp_pickup = XP_PICKUP.instantiate()
+	# Avrundar upp till närmsta heltal
+	xp_pickup.xp_amount = int(ceil(BASE_GOLD_WORTH * modifier_placeholder))
+
 
 func spawn_coin():
-		var coin = COINS.instantiate()
-		coin.amount = BASE_GOLD_WORTH
-		coin.global_position = global_position
-		get_parent().add_child(coin)
-	
+	var coin = COINS.instantiate()
+	# Avrundar upp till närmsta heltal
+	coin.amount = int(ceil(BASE_GOLD_WORTH * modifier_placeholder))
+	coin.global_position = global_position
+	get_parent().add_child(coin)
+
 
 func die():
 	# Sends out signal that something died
 	drop_loot()
-	emit_signal("died", self)
+	emit_signal("enemy_died", self)
 	queue_free()
 
 func get_hit(damage: int):
@@ -43,4 +53,4 @@ func get_hit(damage: int):
 # Damage player when they ender 2D area body
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player: 
-		body.get_hit(ENEMY_DAMAGE)
+		body.get_hit(int(ceil(ENEMY_DAMAGE * modifier_placeholder)))
