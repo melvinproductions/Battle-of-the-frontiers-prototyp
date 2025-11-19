@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ddbwg5k285s82"]
 
 [ext_resource type="Texture2D" uid="uid://djnj8l8v8o3l5" path="res://sprites/Square-white.svg.png" id="1_illd5"]
-[ext_resource type="PackedScene" uid="uid://dsgbxlgbmurpy" path="res://Characters/player/player.tscn" id="3_8btvk"]
+[ext_resource type="PackedScene" uid="uid://dsgbxlgbmurpy" path="res://Resources/player.tscn" id="3_8btvk"]
 [ext_resource type="PackedScene" uid="uid://g6e6l4epe58l" path="res://door/door.tscn" id="3_s0xni"]
 [ext_resource type="PackedScene" uid="uid://bqos3se54s3vb" path="res://Characters/Enemies/melee_dude/melee_dude.tscn" id="4_s0xni"]
 
