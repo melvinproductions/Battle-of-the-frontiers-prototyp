@@ -72,7 +72,6 @@ func get_hit(damage: int):
 	if !is_invincible:
 		invincibility_timer.start()
 		is_invincible = true
-		print("player can now not take damage")
 		
 		PlayerStats.health -= damage
 		player_health_bar.health = PlayerStats.health
@@ -90,7 +89,6 @@ func _on_dash_cooldown_timer_timeout() -> void:
 
 func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
-	print("player CAN now take damage")
 
 func add_coins(amount: int) -> void:
 	PlayerStats.coins += amount

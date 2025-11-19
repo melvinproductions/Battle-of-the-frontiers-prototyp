@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://djnj8l8v8o3l5" path="res://sprites/Square-white.svg.png" id="1_2gnyu"]
 [ext_resource type="PackedScene" uid="uid://dsgbxlgbmurpy" path="res://Characters/player/player.tscn" id="2_wne52"]
 [ext_resource type="PackedScene" uid="uid://g6e6l4epe58l" path="res://door/door.tscn" id="3_ktb77"]
-[ext_resource type="PackedScene" uid="uid://bqos3se54s3vb" path="res://Characters/Enemies/melee_dude/melee_dude.tscn" id="4_wne52"]
+[ext_resource type="Script" uid="uid://cjtnb53afmwdl" path="res://Scripts/enemy_spawner.gd" id="4_wne52"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wne52"]
 vertices = PackedVector2Array(27.5, 27.5, -27.5, 27.5, -27.5, -27.5, 27.5, -27.5)
@@ -59,17 +59,30 @@ position = Vector2(527, 478)
 [node name="door" parent="." instance=ExtResource("3_ktb77")]
 position = Vector2(2114, -534)
 
-[node name="MeleeDude4" parent="." instance=ExtResource("4_wne52")]
-position = Vector2(1036, -1051)
+[node name="EnemySpawns" type="Node2D" parent="." node_paths=PackedStringArray("spawn_pos")]
+script = ExtResource("4_wne52")
+spawn_pos = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6"), NodePath("7"), NodePath("8")]
 
-[node name="MeleeDude5" parent="." instance=ExtResource("4_wne52")]
-position = Vector2(-1250, -45)
+[node name="8" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(1020, -644)
 
-[node name="MeleeDude3" parent="." instance=ExtResource("4_wne52")]
-position = Vector2(-298, -756)
+[node name="7" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(-1366, -61)
 
-[node name="MeleeDude2" parent="." instance=ExtResource("4_wne52")]
-position = Vector2(1589, 226)
+[node name="6" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(1000, -1021)
 
-[node name="MeleeDude" parent="." instance=ExtResource("4_wne52")]
-position = Vector2(213, 251)
+[node name="5" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(-920, -994)
+
+[node name="4" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(-111, -591)
+
+[node name="3" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(-625, 175)
+
+[node name="2" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(1611, 25)
+
+[node name="1" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(299, -284)

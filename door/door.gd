@@ -1,7 +1,7 @@
 extends Area2D
 class_name Door
 
-const rooms_array = ["main", "room2", "room1", "room3"]
+const rooms_array = ["main", "room2", "room1", "room3", "room4"]
 var is_ready_to_go_to_next_level = false
 
 const roll_scene = preload("uid://bsgoxk4b8h68")
