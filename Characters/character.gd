@@ -9,7 +9,7 @@ func _ready() -> void:
 	if not has_method("get_hit"):
 		push_error("Subclasses of Character must implement get_hit()!")
 
-func get_hit(damage)
+func get_hit(damage):
 	push_error("get_hit not implemented in subclass")
 
 

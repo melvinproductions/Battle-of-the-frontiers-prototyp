@@ -1,11 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-var xp: int = 0
-var coins: int = 0
-var health : int = 10
-var max_health : int = 100
-var speed = 600
 
 @onready var player_health_bar: ProgressBar = $bars/health_bar
 @onready var dash_progress_bar: ProgressBar = $bars/dash_progress_bar
@@ -20,21 +15,22 @@ var is_dashing : bool = false
 var dash_speed : int = 1100
 var can_dash : bool = true
 
-func _ready():
-	health = max_health
-	
-	player_health_bar.value = health
-	player_health_bar.init_health(health)
+func _ready():	
+	print(PlayerStats.health)
+	player_health_bar.value = PlayerStats.health
+	player_health_bar.init_health(PlayerStats.max_health, PlayerStats.health)
 	dash_progress_bar.max_value = dash_cooldown_timer.wait_time
 	
 	#sätter player i en egen grupp, lättare att hitta i andra klasser
 	add_to_group("player")
+	print(PlayerStats.health)
+	
 
 func get_input():
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	
 	if !is_dashing:
-		velocity = input_dir * speed
+		velocity = input_dir * PlayerStats.speed
 	
 	if Input.is_action_just_pressed("dash") and can_dash:
 		dash(input_dir)
@@ -78,9 +74,9 @@ func get_hit(damage: int):
 		is_invincible = true
 		print("player can now not take damage")
 		
-		health -= damage
-		player_health_bar.health = health
-		if health <= 0:
+		PlayerStats.health -= damage
+		player_health_bar.health = PlayerStats.health
+		if PlayerStats.health <= 0:
 			die()
 
 func _on_dash_duration_timer_timeout() -> void:
@@ -96,12 +92,12 @@ func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
 	print("player CAN now take damage")
 
-func add_coins(amount: int):
-	coins += amount
+func add_coins(amount: int) -> void:
+	PlayerStats.coins += amount
 	# Extra pickup animations/UI/whatever
 
-func add_xp(amount:int):
-	xp += amount
+func add_xp(amount:int) -> void:
+	PlayerStats.xp += amount
 
 # Detects when player picks up coins
 func _on_pickup_detector_area_entered(area: Area2D) -> void:

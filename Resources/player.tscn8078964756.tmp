@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dsgbxlgbmurpy"]
 
-[ext_resource type="Script" uid="uid://ccivdtog186g1" path="res://Characters/player/player.gd" id="1_763xw"]
-[ext_resource type="Texture2D" uid="uid://00bcv8fnrgd1" path="res://sprites/Monkey-D-Luffy-PNG-Transparent-Image.png" id="2_6wacn"]
-[ext_resource type="PackedScene" uid="uid://jypelxj7pws" path="res://guns/pistol/pistol.tscn" id="3_ek8bb"]
-[ext_resource type="PackedScene" uid="uid://bgv1dpkdk873f" path="res://UI/healthbar.tscn" id="4_aq715"]
+[ext_resource type="Script" uid="uid://ccivdtog186g1" path="res://Characters/player/player.gd" id="1_hxkbv"]
+[ext_resource type="Texture2D" uid="uid://00bcv8fnrgd1" path="res://sprites/Monkey-D-Luffy-PNG-Transparent-Image.png" id="2_i1ew7"]
+[ext_resource type="PackedScene" uid="uid://jypelxj7pws" path="res://guns/pistol/pistol.tscn" id="3_h3mv7"]
+[ext_resource type="PackedScene" uid="uid://bgv1dpkdk873f" path="res://UI/healthbar.tscn" id="4_id0qi"]
 
 [sub_resource type="Environment" id="Environment_rkbax"]
 background_mode = 3
@@ -27,14 +27,14 @@ radius = 157.49683
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
-script = ExtResource("1_763xw")
+script = ExtResource("1_hxkbv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rkbax")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.11, 0.11)
-texture = ExtResource("2_6wacn")
+texture = ExtResource("2_i1ew7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rkbax")
@@ -44,7 +44,7 @@ scale = Vector2(0.545, 0.545)
 zoom = Vector2(0.75, 0.75)
 position_smoothing_speed = 10.0
 
-[node name="Gun" parent="." instance=ExtResource("3_ek8bb")]
+[node name="Gun" parent="." instance=ExtResource("3_h3mv7")]
 
 [node name="timers" type="Node" parent="."]
 
@@ -72,7 +72,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_6wacn")
 value = 50.0
 show_percentage = false
 
-[node name="health_bar" parent="bars" instance=ExtResource("4_aq715")]
+[node name="health_bar" parent="bars" instance=ExtResource("4_id0qi")]
 z_index = 2
 offset_left = -720.0
 offset_top = -389.0
