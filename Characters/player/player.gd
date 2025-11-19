@@ -15,6 +15,8 @@ var is_dashing : bool = false
 var dash_speed : int = 1100
 var can_dash : bool = true
 
+@onready var enemy_checker: Label = $EnemyChecker
+
 func _ready():	
 	print(PlayerStats.health)
 	player_health_bar.value = PlayerStats.health
@@ -38,11 +40,11 @@ func get_input():
 	if Input.is_action_just_pressed("melee"):
 		melee_attack()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 
-func _process(delta):
+func _process(_delta):
 	dash_progress_bar.value = dash_cooldown_timer.time_left
 	
 	if dash_progress_bar.value == 0:
@@ -64,6 +66,7 @@ func dash(input_dir):
 
 func melee_attack():
 	print("melee attack")
+	update_enemy_checker()
 
 func die():
 	pass
@@ -101,3 +104,6 @@ func add_xp(amount:int) -> void:
 func _on_pickup_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("pickups"):
 		area.get_picked_up(self)
+
+func update_enemy_checker():
+	enemy_checker.text = ("0000")

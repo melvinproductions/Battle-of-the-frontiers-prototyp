@@ -3,6 +3,8 @@ extends Node
 @export var spawn_pos : Array[Marker2D]
 const enemy = preload("uid://bqos3se54s3vb")
 
+@onready var door : Door = $"../door"
+
 var enemies_to_kill : int
 var enemies_killed : int
 
@@ -12,7 +14,7 @@ func _ready() -> void:
 	initial_wave()
 	
 	#slumpar mängd fiender att behöva döda
-	enemies_to_kill = randi_range(6, 12)
+	enemies_to_kill = randi_range(2, 3)
 	
 	#timer saker
 	time_between_waves = Timer.new()
@@ -43,6 +45,9 @@ func initial_wave():
 	for i in first_wave:
 		spawn_enemy()
 
-func _on_enemy_death(enemy: Enemy):
-	enemies_killed += 1
+func _on_enemy_death(enemy):
+	enemies_killed += 1 
 	print(enemies_killed)
+	if enemies_killed == enemies_to_kill:
+		print("you can now open ne noor")
+		door.enemies_all_killed = true
