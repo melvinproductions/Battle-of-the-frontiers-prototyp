@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://wh7so3atoacq"]
+[gd_scene load_steps=9 format=3 uid="uid://wh7so3atoacq"]
 
 [ext_resource type="PackedScene" uid="uid://dsgbxlgbmurpy" path="res://Characters/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://djnj8l8v8o3l5" path="res://sprites/Square-white.svg.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://g6e6l4epe58l" path="res://door/door.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://bqos3se54s3vb" path="res://Characters/Enemies/melee_dude/melee_dude.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://j4qfj5mhkl7g" path="res://Characters/Enemies/ranger_dude/ranger_dude.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://cjtnb53afmwdl" path="res://Scripts/enemy_spawner.gd" id="4_1bvp3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1bvp3"]
 vertices = PackedVector2Array(27.5, 27.5, -27.5, 27.5, -27.5, -27.5, 27.5, -27.5)
@@ -89,10 +88,32 @@ position = Vector2(2, -42)
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(579, 456)
 
-[node name="MeleeDude" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(1724, 456)
+[node name="EnemySpawns" type="Node2D" parent="." node_paths=PackedStringArray("spawn_pos")]
+script = ExtResource("4_1bvp3")
+spawn_pos = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6"), NodePath("7"), NodePath("8")]
 
-[node name="ArrowDude" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(601, 91)
+[node name="8" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(800, -22)
+
+[node name="7" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(1250, 100)
+
+[node name="6" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(-336, 272)
+
+[node name="5" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(1820, 621)
+
+[node name="4" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(1351, 567)
+
+[node name="3" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(1581, -606)
+
+[node name="2" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(1778, -272)
+
+[node name="1" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(-422, -71)
 
 [editable path="doors/door1"]

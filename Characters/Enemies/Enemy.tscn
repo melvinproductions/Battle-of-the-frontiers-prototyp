@@ -6,6 +6,6 @@
 script = ExtResource("1_5wrwb")
 MAX_HEALTH = null
 ENEMY_DAMAGE = null
-BASE_GOLD_WORTH = null
 ENEMY_SPEED = null
 ENEMY_MAX_HEALTH = null
+BASE_GOLD_WORTH = null
