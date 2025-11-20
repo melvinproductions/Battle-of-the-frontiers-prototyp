@@ -11,7 +11,6 @@ var modifier_placeholder: float = 1.5
 @export var BASE_GOLD_WORTH: int = 10 
 @export var BASE_XP_WORTH: int = 10
 const COINS = preload("uid://c3befyj2lgpcx")
-const XP_PICKUP = preload("uid://d1lvr22n6g750")
 
 var health: int = 0 # placeholder
 var enemy_healthbar: ProgressBar = null  # placeholder
@@ -19,16 +18,9 @@ var enemy_healthbar: ProgressBar = null  # placeholder
 signal enemy_died(enemy: Enemy)
 
 func drop_loot():
-	if XP_PICKUP:
-		call_deferred("spawn_xp")
 	if COINS:
 		call_deferred("spawn_coin")
-
-func spawn_xp():
-	var xp_pickup = XP_PICKUP.instantiate()
-	# Avrundar upp till närmsta heltal
-	xp_pickup.xp_amount = int(ceil(BASE_GOLD_WORTH * modifier_placeholder))
-
+	PlayerStats.add_xp(BASE_XP_WORTH)
 
 func spawn_coin():
 	var coin = COINS.instantiate()

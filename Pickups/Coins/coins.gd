@@ -4,5 +4,4 @@ class_name Coin
 
 func get_picked_up(player: Player):
 	player.add_coins(amount)
-	print("Player picked up: " + str(amount) + " coins")
 	queue_free()
