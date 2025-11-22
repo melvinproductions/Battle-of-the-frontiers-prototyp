@@ -2,7 +2,7 @@ extends Node
 class_name EnemySpawner
 
 @export var spawn_pos : Array[Marker2D]
-const enemy = preload("uid://bqos3se54s3vb")
+const enemy = preload("res://Characters/Enemies/melee_dude/melee_dude.tscn")
 
 @onready var door : Door = $"../door"
 
