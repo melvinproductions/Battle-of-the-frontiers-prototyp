@@ -7,9 +7,11 @@
 radius = 430.46484
 
 [node name="Coins" type="Area2D"]
+scale = Vector2(0.23999983, 0.23999983)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_lutay")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)

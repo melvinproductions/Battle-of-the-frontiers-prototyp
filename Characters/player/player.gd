@@ -106,7 +106,7 @@ func add_coins(amount: int) -> void:
 # Detects when player picks up coins
 func _on_pickup_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("pickups"):
-		area.get_picked_up(self)
+		area.get_picked_up()
 
 func on_enemies_killed_ui_change(e_killed, e_to_kill):
 	enemy_checker.text = str(e_killed) + "/" + str(e_to_kill)
