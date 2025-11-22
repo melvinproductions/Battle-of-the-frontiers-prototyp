@@ -41,7 +41,6 @@ func get_input():
 		dash(input_dir)
 	
 	if Input.is_action_just_pressed("melee"):
-		print(AudioManager.p_walk_sfx)
 		melee_attack()
 	
 func _physics_process(_delta):
