@@ -18,8 +18,8 @@ config/icon="res://Characters/player/icon.svg"
 [autoload]
 
 DoorManager="*res://global/door_manager.gd"
-PlayerStats="*res://Resources/PlayerStats.gd"
-AudioManager="*res://scenes/audio_manager.tscn"
+PlayerStats="*res://global/PlayerStats.gd"
+AudioManager="*res://scenes/audio_manager.gd"
 
 [input]
 
