@@ -1,7 +1,7 @@
 extends Area2D
 
 const SPEED: int = 75000
-const DAMAGE = 1
+var damage : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +19,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("get_hit"):
 		queue_free()
-		body.get_hit(DAMAGE)
+		body.get_hit(damage)
 	else:
 		queue_free()

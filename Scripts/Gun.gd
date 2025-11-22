@@ -36,6 +36,7 @@ func fire():
 	if(_time_since_last_shot >= fire_rate) and !_is_reloading and _ammo_in_mag > 0:
 		var bullet_instance = bullet.instantiate()
 		get_tree().root.add_child(bullet_instance)
+		bullet_instance.damage = damage
 		bullet_instance.rotation = rotation
 		bullet_instance.global_position = shoot_pos.global_position
 		_time_since_last_shot = 0

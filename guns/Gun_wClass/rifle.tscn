@@ -6,7 +6,7 @@
 
 [node name="Rifle" type="Node2D" node_paths=PackedStringArray("shoot_pos", "sprite")]
 script = ExtResource("1_1hyhv")
-damage = 5
+damage = 1
 gun_name = "Rifle"
 fire_rate = 0.15
 reload_time = 2.0
