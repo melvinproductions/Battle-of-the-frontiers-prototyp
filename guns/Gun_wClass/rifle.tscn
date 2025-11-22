@@ -8,7 +8,7 @@
 script = ExtResource("1_1hyhv")
 damage = 5
 gun_name = "Rifle"
-fire_rate = 1.0
+fire_rate = 0.15
 reload_time = 2.0
 mag_size = 10
 bullet = ExtResource("2_4lutc")
@@ -16,8 +16,9 @@ shoot_pos = NodePath("Marker2D")
 sprite = NodePath("Pistol")
 
 [node name="Pistol" type="Sprite2D" parent="."]
-scale = Vector2(0.17, 0.17)
+position = Vector2(12.25, 0.5)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_0umqg")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(19, -1)
+position = Vector2(47.25, -2.5)

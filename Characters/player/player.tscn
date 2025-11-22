@@ -138,7 +138,7 @@ horizontal_alignment = 2
 uppercase = true
 
 [node name="Rifle" parent="." instance=ExtResource("4_763xw")]
-position = Vector2(19, -12)
+position = Vector2(-2, -14)
 
 [connection signal="timeout" from="timers/Dash_duration_timer" to="." method="_on_dash_duration_timer_timeout"]
 [connection signal="timeout" from="timers/Dash_cooldown_timer" to="." method="_on_dash_cooldown_timer_timeout"]
