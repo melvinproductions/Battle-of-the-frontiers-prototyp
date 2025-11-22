@@ -2,7 +2,7 @@ extends Node
 class_name EnemySpawner
 
 @export var spawn_pos : Array[Marker2D]
-const enemy = preload("res://Characters/Enemies/melee_dude/melee_dude.tscn")
+const enemy = preload("uid://bqos3se54s3vb") # Melee_dude
 
 @onready var door : Door = $"../door"
 
@@ -43,7 +43,7 @@ func _on_timer_timeout():
 
 func spawn_enemy():
 	var spawn_point = spawn_pos[randi() % spawn_pos.size()]
-	var ene = enemy.instantiate()
+	var ene: Melee_dude = enemy.instantiate()
 	ene.global_position = spawn_point.global_position
 	add_child(ene)
 	
@@ -54,7 +54,7 @@ func initial_wave():
 	for i in first_wave:
 		spawn_enemy()
 
-func _on_enemy_death(enemy):
+func _on_enemy_death(_enemy):
 	enemies_killed += 1 
 	emit_signal("enemies_killed_changed", enemies_killed, enemies_to_kill)
 	

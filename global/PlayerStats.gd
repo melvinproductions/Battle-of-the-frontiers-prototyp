@@ -10,6 +10,7 @@ var coins: int = 0
 @export var speed: int = 600
 var xp_for_level = 10 
 var relics: Array = []
+var on_enemy_death_callbacks: Array = []
 
 func add_xp(amount: int):
 	xp += amount

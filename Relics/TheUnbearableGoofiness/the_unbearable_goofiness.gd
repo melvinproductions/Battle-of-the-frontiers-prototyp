@@ -9,6 +9,7 @@ func on_enemy_death(_enemy: Enemy):
 		return
 	enemies_killed += 1
 	if (enemies_killed >= 3):
+		print("HEALING PLAYER")
 		enemies_killed -= 3
 		PlayerStats.health += 10
 		if (PlayerStats.health > PlayerStats.max_health):

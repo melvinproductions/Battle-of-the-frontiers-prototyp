@@ -9,3 +9,4 @@ ENEMY_DAMAGE = null
 ENEMY_SPEED = null
 ENEMY_MAX_HEALTH = null
 BASE_GOLD_WORTH = null
+BASE_XP_WORTH = null

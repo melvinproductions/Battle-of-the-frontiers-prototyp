@@ -7,14 +7,17 @@
 radius = 199.12308
 
 [node name="TheUnberableGoofiness" type="Area2D"]
+scale = Vector2(0.15515164, 0.15515164)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_6m6wj")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ycnu4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.9595795, 0.9595795)
 shape = SubResource("CircleShape2D_ycnu4")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
