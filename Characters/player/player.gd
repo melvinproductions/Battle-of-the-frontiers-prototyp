@@ -16,6 +16,9 @@ var dash_speed : int = 1100
 var can_dash : bool = true
 
 @onready var enemy_checker: Label = $EnemyChecker
+@onready var coins_ui: Label = $Coins
+@onready var level_ui: Label = $Level
+
 
 func _ready():	
 	player_health_bar.value = PlayerStats.health
@@ -26,9 +29,13 @@ func _ready():
 	#hitta spawner o connecta signal
 	var e_spawner = get_node("../EnemySpawns")
 	e_spawner.enemies_killed_changed.connect(on_enemies_killed_ui_change)
+	PlayerStats.leveled_up.connect(on_leveled_up)
 	
 	#sätter player i en egen grupp, lättare att hitta i andra klasser
 	add_to_group("player")
+	
+	level_ui.text = "Level: " + str(PlayerStats.level)
+	coins_ui.text = "Coins: " + str(PlayerStats.coins)
 	
 
 func get_input():
@@ -101,6 +108,7 @@ func _on_leveled_up():
 
 func add_coins(amount: int) -> void:
 	PlayerStats.coins += amount
+	coins_ui.text = "Coins: " + str(PlayerStats.coins)
 	# Extra pickup animations/UI/whatever
 
 # Detects when player picks up coins
@@ -110,3 +118,6 @@ func _on_pickup_detector_area_entered(area: Area2D) -> void:
 
 func on_enemies_killed_ui_change(e_killed, e_to_kill):
 	enemy_checker.text = str(e_killed) + "/" + str(e_to_kill)
+
+func on_leveled_up():
+	level_ui.text = "Level: " + str(PlayerStats.level)
