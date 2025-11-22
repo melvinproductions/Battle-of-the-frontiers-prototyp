@@ -11,8 +11,6 @@ func effect():
 	assert(false) 
 
 func get_picked_up():
-	
-	PlayerStats.relics.append(relic_data)
 	print("Picked up relic! with desc" + desc)
 	pickedUp = true
 	visible = false
