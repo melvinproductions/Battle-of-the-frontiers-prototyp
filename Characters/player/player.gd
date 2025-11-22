@@ -18,10 +18,10 @@ var can_dash : bool = true
 @onready var enemy_checker: Label = $EnemyChecker
 
 func _ready():	
-	print(PlayerStats.health)
 	player_health_bar.value = PlayerStats.health
 	player_health_bar.init_health(PlayerStats.max_health, PlayerStats.health)
 	dash_progress_bar.max_value = dash_cooldown_timer.wait_time
+	PlayerStats.leveled_up.connect(_on_leveled_up)
 	
 	#hitta spawner o connecta signal
 	var e_spawner = get_node("../EnemySpawns")
@@ -29,7 +29,6 @@ func _ready():
 	
 	#sätter player i en egen grupp, lättare att hitta i andra klasser
 	add_to_group("player")
-	print(PlayerStats.health)
 	
 
 func get_input():
@@ -97,12 +96,13 @@ func _on_dash_cooldown_timer_timeout() -> void:
 func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
 
+func _on_leveled_up():
+	player_health_bar.value = PlayerStats.health
+	player_health_bar.init_health(PlayerStats.max_health, PlayerStats.health)
+
 func add_coins(amount: int) -> void:
 	PlayerStats.coins += amount
 	# Extra pickup animations/UI/whatever
-
-func add_xp(amount:int) -> void:
-	PlayerStats.xp += amount
 
 # Detects when player picks up coins
 func _on_pickup_detector_area_entered(area: Area2D) -> void:
