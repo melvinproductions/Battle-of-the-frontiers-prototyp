@@ -23,6 +23,10 @@ func _ready():
 	player_health_bar.init_health(PlayerStats.max_health, PlayerStats.health)
 	dash_progress_bar.max_value = dash_cooldown_timer.wait_time
 	
+	#hitta spawner o connecta signal
+	var e_spawner = get_node("../EnemySpawns")
+	e_spawner.enemies_killed_changed.connect(on_enemies_killed_ui_change)
+	
 	#sätter player i en egen grupp, lättare att hitta i andra klasser
 	add_to_group("player")
 	print(PlayerStats.health)
@@ -38,8 +42,9 @@ func get_input():
 		dash(input_dir)
 	
 	if Input.is_action_just_pressed("melee"):
+		print(AudioManager.p_walk_sfx)
 		melee_attack()
-
+	
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
@@ -66,7 +71,6 @@ func dash(input_dir):
 
 func melee_attack():
 	print("melee attack")
-	update_enemy_checker()
 
 func die():
 	pass
@@ -105,5 +109,5 @@ func _on_pickup_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("pickups"):
 		area.get_picked_up(self)
 
-func update_enemy_checker():
-	enemy_checker.text = ("0000")
+func on_enemies_killed_ui_change(e_killed, e_to_kill):
+	enemy_checker.text = str(e_killed) + "/" + str(e_to_kill)

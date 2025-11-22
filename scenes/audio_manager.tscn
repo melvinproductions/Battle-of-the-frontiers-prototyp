@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5oiosfuhampc"]
+
+[ext_resource type="Script" uid="uid://ctaan1u7ylo11" path="res://scenes/audio_manager.gd" id="1_liach"]
+[ext_resource type="AudioStream" uid="uid://c2t4ie3pkvest" path="res://SFX/player_footsteps.mp3" id="2_liach"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_liach")
+
+[node name="p_walk_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_liach")

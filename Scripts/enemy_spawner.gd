@@ -1,4 +1,5 @@
 extends Node
+class_name EnemySpawner
 
 @export var spawn_pos : Array[Marker2D]
 const enemy = preload("uid://bqos3se54s3vb")
@@ -8,9 +9,13 @@ const enemy = preload("uid://bqos3se54s3vb")
 var enemies_to_kill : int
 var enemies_killed : int
 
+#signal som skickas t spelaren
+signal enemies_killed_changed(e_killed, e_to_kill)
+
 var time_between_waves : Timer
 
 func _ready() -> void:
+	#spawnar första ligan fiender
 	initial_wave()
 	
 	#slumpar mängd fiender att behöva döda
@@ -26,6 +31,10 @@ func _ready() -> void:
 	
 	time_between_waves.timeout.connect(_on_timer_timeout)
 	time_between_waves.start()
+	
+	#uppdaterar spelarens UI så att den visar hur många fiender som måste dödas
+	var player = get_tree().get_first_node_in_group("player")
+	player.on_enemies_killed_ui_change(enemies_killed, enemies_to_kill)
 
 func _on_timer_timeout():
 	print("SPAWN MORE ENEMIES NOW")
@@ -47,6 +56,8 @@ func initial_wave():
 
 func _on_enemy_death(enemy):
 	enemies_killed += 1 
+	emit_signal("enemies_killed_changed", enemies_killed, enemies_to_kill)
+	
 	print(enemies_killed)
 	if enemies_killed == enemies_to_kill:
 		print("you can now open ne noor")
