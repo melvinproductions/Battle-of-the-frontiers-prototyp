@@ -42,6 +42,7 @@ func die():
 	# Sends out signal that something died
 	drop_loot()
 	emit_signal("enemy_died", self)
+	SignalBus.emit_signal("enemy_died", self)
 	queue_free()
 
 func get_hit(damage: int):

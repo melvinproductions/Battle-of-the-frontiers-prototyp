@@ -37,6 +37,8 @@ func _ready():
 	level_ui.text = "Level: " + str(PlayerStats.level)
 	coins_ui.text = "Coins: " + str(PlayerStats.coins)
 	
+	SignalBus.connect("coin_picked_up", update_coin_UI)
+	
 
 func get_input():
 	var input_dir = Input.get_vector("left", "right", "up", "down")
@@ -106,10 +108,8 @@ func _on_leveled_up():
 	player_health_bar.value = PlayerStats.health
 	player_health_bar.init_health(PlayerStats.max_health, PlayerStats.health)
 
-func add_coins(amount: int) -> void:
-	PlayerStats.coins += amount
+func update_coin_UI() -> void:
 	coins_ui.text = "Coins: " + str(PlayerStats.coins)
-	# Extra pickup animations/UI/whatever
 
 # Detects when player picks up coins
 func _on_pickup_detector_area_entered(area: Area2D) -> void:

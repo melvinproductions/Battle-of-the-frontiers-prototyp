@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GoofinessRelic" load_steps=2 format=3 uid="uid://vkeyuy7q1cbd"]
+
+[ext_resource type="Script" uid="uid://bhiit8gwc7mqr" path="res://Relics/TheUnbearableGoofiness/GoofinessRelic.gd" id="1_go1tv"]
+
+[resource]
+script = ExtResource("1_go1tv")
+relic_name = "UnbearableGoofiness"
+description = "He is so silly!!!"
+metadata/_custom_type_script = "uid://bhiit8gwc7mqr"

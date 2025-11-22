@@ -4,4 +4,5 @@ class_name Coin
 
 func get_picked_up():
 	PlayerStats.coins += amount
+	SignalBus.emit_signal("coin_picked_up")
 	queue_free()
