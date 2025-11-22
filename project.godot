@@ -19,6 +19,7 @@ config/icon="res://Characters/player/icon.svg"
 
 DoorManager="*res://global/door_manager.gd"
 PlayerStats="*res://global/PlayerStats.gd"
+AudioManager="*res://scenes/audio_manager.gd"
 
 [input]
 

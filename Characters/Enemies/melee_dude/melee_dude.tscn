@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqos3se54s3vb"]
 
-[ext_resource type="Script" uid="uid://dwkuuayplgia8" path="res://melee_dude.gd" id="1_0atwb"]
+[ext_resource type="Script" uid="uid://dwkuuayplgia8" path="res://Characters/melee_dude.gd" id="1_0atwb"]
 [ext_resource type="Texture2D" uid="uid://yehot0ysngyt" path="res://Characters/Enemies/melee_dude/pixel-art-fighter-with-energy-blast-wftnxu6mt70596j1.png" id="2_fycf3"]
 [ext_resource type="PackedScene" uid="uid://t7jr01ydfhjn" path="res://UI/enemy_healthbar.tscn" id="3_fycf3"]
 
