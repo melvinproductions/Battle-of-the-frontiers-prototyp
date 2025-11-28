@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqos3se54s3vb"]
 
 [ext_resource type="Script" uid="uid://dwkuuayplgia8" path="res://Characters/Enemies/melee_dude/melee_dude.gd" id="1_0atwb"]
-[ext_resource type="Texture2D" uid="uid://yehot0ysngyt" path="res://Characters/Enemies/melee_dude/pixel-art-fighter-with-energy-blast-wftnxu6mt70596j1.png" id="2_fycf3"]
+[ext_resource type="Texture2D" uid="uid://dcv4ydvltlj2a" path="res://Characters/Enemies/melee_dude/ENEMY.png" id="2_fycf3"]
 [ext_resource type="PackedScene" uid="uid://t7jr01ydfhjn" path="res://UI/enemy_healthbar.tscn" id="3_fycf3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fycf3"]
-size = Vector2(116, 107)
+size = Vector2(19, 22)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fycf3"]
-radius = 33.0
-height = 88.0
+radius = 5.0
+height = 16.0
 
 [node name="MeleeDude" type="CharacterBody2D"]
 collision_layer = 2
@@ -19,31 +19,30 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_0atwb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.175, 0.175)
 texture = ExtResource("2_fycf3")
 
 [node name="enemy_healthbar" parent="." instance=ExtResource("3_fycf3")]
-offset_left = -51.0
-offset_top = -86.0
-offset_right = 41.0
-offset_bottom = -72.0
+offset_left = -9.0
+offset_top = -13.0
+offset_right = 83.0
+offset_bottom = 1.0
+scale = Vector2(0.18274315, 0.14294009)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 4
 
 [node name="PlayerDetector" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-6, 0.5)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_fycf3")
 
 [node name="EnvirDetector" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 10)
+position = Vector2(-1, 0)
 rotation = -3.1415925
 shape = SubResource("CapsuleShape2D_fycf3")
 
 [node name="AI" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="AI"]
-debug_enabled = true
 
 [node name="time_until_make_new_path" type="Timer" parent="AI"]
 wait_time = 0.3

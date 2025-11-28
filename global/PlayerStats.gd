@@ -7,7 +7,7 @@ var health: int = max_health
 var xp: int = 0
 var level: int = 1
 var coins: int = 0
-@export var speed: int = 600
+@export var speed: int = 85
 var xp_for_level = 10 
 
 func add_xp(amount: int):

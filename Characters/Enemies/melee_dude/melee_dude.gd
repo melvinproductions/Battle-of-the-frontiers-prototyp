@@ -20,6 +20,12 @@ func _physics_process(_delta: float) -> void:
 		
 	var direction = global_position.direction_to(next_path_position)
 	velocity = direction * ENEMY_SPEED
+	
+	if global_position > player.global_position:
+		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
+	
 	move_and_slide()
 
 func make_path():

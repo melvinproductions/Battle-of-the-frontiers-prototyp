@@ -8,11 +8,13 @@ extends CharacterBody2D
 @onready var dash_duration_timer: Timer = $timers/Dash_duration_timer
 @onready var dash_cooldown_timer: Timer = $timers/Dash_cooldown_timer
 
+@onready var sprite: Sprite2D = $Sprite2D
+
 @onready var invincibility_timer: Timer = $timers/Invincibility_timer
 var is_invincible : bool = false
 
 var is_dashing : bool = false
-var dash_speed : int = 1100
+var dash_speed : int = 210
 var can_dash : bool = true
 
 @onready var enemy_checker: Label = $EnemyChecker
@@ -42,6 +44,10 @@ func _ready():
 
 func get_input():
 	var input_dir = Input.get_vector("left", "right", "up", "down")
+	if velocity.x > 0:
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
 	
 	if !is_dashing:
 		velocity = input_dir * PlayerStats.speed

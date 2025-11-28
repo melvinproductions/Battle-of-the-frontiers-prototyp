@@ -30,7 +30,8 @@ animations = [{
 script = ExtResource("1_orm84")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(160, 90)
+scale = Vector2(0.28432372, 0.28432372)
 sprite_frames = SubResource("SpriteFrames_w5duc")
 animation = &"roll"
 

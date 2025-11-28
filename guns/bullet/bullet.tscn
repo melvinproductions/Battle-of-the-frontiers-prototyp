@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmxjtqy4g1agh" path="res://guns/bullet/bullet.png" id="1_kuil4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vul8"]
-size = Vector2(1149.9954, 649.9974)
+size = Vector2(224.99854, 124.9995)
 
 [node name="bullet" type="Area2D"]
 scale = Vector2(0.040000156, 0.040000156)
@@ -13,13 +13,14 @@ script = ExtResource("1_1vul8")
 
 [node name="Bullet" type="Sprite2D" parent="."]
 position = Vector2(549.9979, 3)
+scale = Vector2(0.185, 0.185)
 texture = ExtResource("1_kuil4")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(312.9988, 312.9988)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(549.99817, 24.999928)
+position = Vector2(549.99786, 0)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_1vul8")
 
